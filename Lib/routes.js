@@ -2,6 +2,17 @@ Accounts.onLogin(function(){
 	FlowRouter.go('EventsPage');
 });
 
+ Accounts.onLogout(function() {
+  FlowRouter.go('LoginPage');
+ });
+
+FlowRouter.triggers.enter([function(context, redirect){
+	if(!Meteor.userId()){
+		FlowRouter.go('LoginPage');
+	}
+}]);
+
+
 FlowRouter.route('/events', {
 	name: 'EventsPage',
 	action(){
@@ -13,6 +24,13 @@ FlowRouter.route('/mainpage',{
 	name: 'MainPage',
 	action(){
 		BlazeLayout.render('MainLayout', {main: "MainPage"});
+	}
+});
+
+FlowRouter.route('/',{
+	name: 'LoginPage',
+	action(){
+		BlazeLayout.render('HomeLayout');
 	}
 });
 

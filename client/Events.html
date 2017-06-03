@@ -1,12 +1,9 @@
 <template name = "Events">
 This is the events template
-		{{> quickForm collection="Events" id = "insertEventsForm" type = "insert" class = "new-events-form"}}
+		{{> quickForm collection="Events" id = "insertEventsForm" type = "insert"}}
 <ul> 
-	<li> 
-		<a href="/MainPage">	event1	
-		</a>
-	</li>
-	
-	<li>event2</li>
+	{{#each events}}
+		<li> {{>Event}} </li>
+	{{/each}}
 </ul>
 </template>

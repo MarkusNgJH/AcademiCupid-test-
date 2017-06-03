@@ -18,9 +18,10 @@ EventsSchema = new SimpleSchema({
 	},
 	participants:{
 		type: [String],
-		autoform:{
-			type: "hidden"
-		}
+		autoform: {
+   			type: "hidden" //This makes this field hidden from view. Hence it will not appear on our form.
+  		},
+		optional: true
 	},
 	owner:{
   		type: String,
